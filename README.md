@@ -15,6 +15,7 @@ This is the github repo for the work "Succinct and Robust Multi-Agent Communicat
 
 ```
 python3 src/main.py --config=xxx_xxx --env-config=sc2 with env_args.map_name=xxx
+python3 src/main.py --config=qmix_6h_vs_8z --env-config=sc2 with env_args.map_name=6h_vs_8z
 ```
 --config can be one of the following four options: vdn_6h_vs_8z,vdn_corridor,qmix_6h_vs_8z,qmix_corridor (corridor is 6z_vs_24zerg scenario). For example 'vdn_6h_vs_8z' means 6h_vs_8z map with VDN as the mixing network.
 

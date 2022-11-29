@@ -1,0 +1,131 @@
+{
+  "artifacts": [],
+  "command": "my_main",
+  "experiment": {
+    "base_dir": "/home/marmot/yibin/VBC/src",
+    "dependencies": [
+      "munch==2.5.0",
+      "numpy==1.23.4",
+      "PyYAML==3.13",
+      "sacred==0.8.2",
+      "torch==1.13.0"
+    ],
+    "mainfile": "main.py",
+    "name": "pymarl",
+    "repositories": [
+      {
+        "commit": "01e218ab0d22f7f5d515a179ee4764db1e4e8038",
+        "dirty": true,
+        "url": "git@github.com:YangSVM/VBC.git"
+      },
+      {
+        "commit": "01e218ab0d22f7f5d515a179ee4764db1e4e8038",
+        "dirty": true,
+        "url": "git@github.com:YangSVM/VBC.git"
+      },
+      {
+        "commit": "01e218ab0d22f7f5d515a179ee4764db1e4e8038",
+        "dirty": true,
+        "url": "git@github.com:YangSVM/VBC.git"
+      }
+    ],
+    "sources": [
+      [
+        "main.py",
+        "_sources/main_ed028d89657822fa4f3b778df1b6e50a.py"
+      ],
+      [
+        "run.py",
+        "_sources/run_521c2788efd616ccb1da788d76c9b725.py"
+      ],
+      [
+        "utils/logging.py",
+        "_sources/logging_42f1e6b7281693f05c7ab5e124dee179.py"
+      ]
+    ]
+  },
+  "fail_trace": [
+    "Traceback (most recent call last):\n",
+    "  File \"/home/marmot/anaconda3/envs/yibin/lib/python3.8/site-packages/sacred/config/captured_function.py\", line 42, in captured_function\n    result = wrapped(*args, **kwargs)\n",
+    "  File \"src/main.py\", line 35, in my_main\n    run(_run, _config, _log)\n",
+    "  File \"/home/marmot/yibin/VBC/src/run.py\", line 48, in run\n    run_sequential(args=args, logger=logger)\n",
+    "  File \"/home/marmot/yibin/VBC/src/run.py\", line 215, in run_sequential\n    datalist = logger.print_recent_stats()\n",
+    "  File \"/home/marmot/yibin/VBC/src/utils/logging.py\", line 52, in print_recent_stats\n    item = \"{:.4f}\".format(np.mean([x[1] for x in self.stats[k][-window:]]))\n",
+    "  File \"<__array_function__ internals>\", line 180, in mean\n",
+    "  File \"/home/marmot/anaconda3/envs/yibin/lib/python3.8/site-packages/numpy/core/fromnumeric.py\", line 3432, in mean\n    return _methods._mean(a, axis=axis, dtype=dtype,\n",
+    "  File \"/home/marmot/anaconda3/envs/yibin/lib/python3.8/site-packages/numpy/core/_methods.py\", line 164, in _mean\n    arr = asanyarray(a)\n",
+    "  File \"/home/marmot/anaconda3/envs/yibin/lib/python3.8/site-packages/torch/_tensor.py\", line 955, in __array__\n    return self.numpy()\n",
+    "TypeError: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.\n"
+  ],
+  "heartbeat": "2022-11-29T07:59:19.590295",
+  "host": {
+    "ENV": {},
+    "cpu": "Intel(R) Core(TM) i9-10980XE CPU @ 3.00GHz",
+    "gpus": {
+      "driver_version": "460.32.03",
+      "gpus": [
+        {
+          "model": "GeForce RTX 3090",
+          "persistence_mode": false,
+          "total_memory": 24268
+        },
+        {
+          "model": "GeForce RTX 3090",
+          "persistence_mode": false,
+          "total_memory": 24268
+        },
+        {
+          "model": "GeForce RTX 3090",
+          "persistence_mode": false,
+          "total_memory": 24268
+        },
+        {
+          "model": "GeForce RTX 3090",
+          "persistence_mode": false,
+          "total_memory": 24265
+        }
+      ]
+    },
+    "hostname": "ME5406-Server2",
+    "os": [
+      "Linux",
+      "Linux-5.4.0-107-generic-x86_64-with-glibc2.10"
+    ],
+    "python_version": "3.8.15"
+  },
+  "meta": {
+    "command": "my_main",
+    "options": {
+      "--beat-interval": null,
+      "--capture": null,
+      "--comment": null,
+      "--debug": false,
+      "--enforce_clean": false,
+      "--file_storage": null,
+      "--force": false,
+      "--help": false,
+      "--loglevel": null,
+      "--mongo_db": null,
+      "--name": null,
+      "--pdb": false,
+      "--print-config": false,
+      "--priority": null,
+      "--queue": false,
+      "--s3": null,
+      "--sql": null,
+      "--tiny_db": null,
+      "--unobserved": false,
+      "COMMAND": null,
+      "UPDATE": [
+        "env_args.map_name=6h_vs_8z"
+      ],
+      "help": false,
+      "with": true
+    }
+  },
+  "resources": [],
+  "result": null,
+  "start_time": "2022-11-29T07:56:32.412706",
+  "status": "FAILED",
+  "stop_time": "2022-11-29T07:59:19.596013"
+}

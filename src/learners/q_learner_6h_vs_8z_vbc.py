@@ -6,6 +6,8 @@ import torch as th
 import numpy as np
 from torch.optim import RMSprop
 
+th.autograd.set_detect_anomaly(True)
+
 # learning for 6h_vs_8z scenario
 class QLearner_6h_vs_8z:
     def __init__(self, mac, scheme, logger, args):
@@ -46,7 +48,6 @@ class QLearner_6h_vs_8z:
         # Calculate estimated Q-Values
         mac_out = []
         difference_out = []
-        difference_out1 = []         
         self.mac.init_hidden(batch.batch_size)
         for t in range(batch.max_seq_length):
             agent_local_outputs, hidden_states = self.mac.forward(batch, t=t)  
@@ -109,8 +110,9 @@ class QLearner_6h_vs_8z:
         # Max over target Q-Values
         if self.args.double_q:
             # Get actions that maximise live Q (for double q-learning)
-            mac_out[avail_actions == 0] = -9999999
-            cur_max_actions = mac_out[:, 1:].max(dim=3, keepdim=True)[1]
+            mac_out_detach = mac_out.clone().detach()
+            mac_out_detach[avail_actions == 0] = -9999999
+            cur_max_actions = mac_out_detach[:, 1:].max(dim=3, keepdim=True)[1]
             target_max_qvals = th.gather(target_mac_out, 3, cur_max_actions).squeeze(3)
         else:
             target_max_qvals = target_mac_out.max(dim=3)[0]
